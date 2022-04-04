@@ -8,6 +8,7 @@ import 'package:shopping_app/screens/home.dart';
 import 'package:shopping_app/screens/splashscreen/splash_screen.dart';
 
 final GoRouter goRouter = GoRouter(
+    urlPathStrategy: UrlPathStrategy.path,
     routes: [
       Routes.splash,
       Routes.home,
@@ -17,8 +18,12 @@ final GoRouter goRouter = GoRouter(
       // If not initialized and not on the splash page,
       // go to the splash page.
       if (!appStatemanager.isInitialized) {
+        if (state.subloc == Routes.splash.path) {
+          return null;
+        }
+
         if (state.subloc != Routes.splash.path) {
-          return Routes.splash.path;
+          return Routes.splash.path + '?next=${state.location}';
         }
         // Staying on the splash page while initializing
         // is correct.
@@ -26,6 +31,9 @@ final GoRouter goRouter = GoRouter(
       }
 
       if (state.subloc == Routes.splash.path) {
+        if (state.queryParams.containsKey('next')) {
+          return state.queryParams['next']!;
+        }
         return Routes.home.path;
       }
 

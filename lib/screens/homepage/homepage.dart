@@ -14,6 +14,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      controller: ScrollController(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -62,6 +63,7 @@ class BestDealsGrid extends StatelessWidget {
           ),
           SizedBox(
             child: GridView.builder(
+                physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true, // noodzakelijk?
                 itemCount: bestDeals.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -141,6 +143,8 @@ class CategoryList extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 5),
           height: size.height * 0.15,
           child: ListView.builder(
+              controller: ScrollController(),
+              physics: NeverScrollableScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: categories.length,
               itemBuilder: ((context, index) {

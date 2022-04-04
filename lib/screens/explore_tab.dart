@@ -26,6 +26,7 @@ class ExploreTab extends StatelessWidget {
             padding: EdgeInsets.all(8),
             color: Color.fromARGB(255, 245, 243, 243),
             child: GridView.builder(
+                controller: ScrollController(),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     mainAxisSpacing: 5, crossAxisCount: 3, crossAxisSpacing: 5),
                 itemCount: categories.length,
