@@ -6,6 +6,7 @@ class PageTabs {
   static int home = 0;
   static int explore = 1;
   static int cart = 2;
+  static int data = 3;
 }
 
 class AppStatemanager extends ChangeNotifier {

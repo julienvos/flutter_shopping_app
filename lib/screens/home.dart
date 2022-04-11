@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_app/models/providers/app_state_manager.dart';
+import 'package:shopping_app/screens/datas_screen/data_screen.dart';
 
 import 'cart_screen/cart_screen.dart';
 import 'explore_tab.dart';
@@ -18,18 +19,42 @@ class Home extends StatelessWidget {
             resizeToAvoidBottomInset: false,
             body: IndexedStack(
               index: tabManager.currentPage,
-              children: [HomePage(), ExploreTab(), CartScreen()],
+              children: const [
+                HomePage(),
+                ExploreTab(),
+                CartScreen(),
+                DataScreen()
+              ],
             ),
             bottomNavigationBar: BottomNavigationBar(
                 currentIndex: tabManager.currentPage,
                 onTap: tabManager.changeTabs,
-                items: [
+                items: const [
                   BottomNavigationBarItem(
-                      icon: Icon(Icons.home), label: "Home"),
+                      icon: Icon(
+                        Icons.home,
+                        color: Colors.blue,
+                      ),
+                      label: "Home"),
                   BottomNavigationBarItem(
-                      icon: Icon(Icons.search), label: "Explore"),
+                      icon: Icon(
+                        Icons.search,
+                        color: Colors.blue,
+                      ),
+                      label: "Explore"),
                   BottomNavigationBarItem(
-                      icon: Icon(Icons.shopping_cart_rounded), label: "Cart")
+                      icon: Icon(
+                        Icons.shopping_cart_rounded,
+                        color: Colors.blue,
+                      ),
+                      label: "Cart"),
+                  BottomNavigationBarItem(
+                    icon: Icon(
+                      Icons.date_range_sharp,
+                      color: Colors.blue,
+                    ),
+                    label: "Data Input",
+                  )
                 ]),
           ),
         );

@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_app/models/providers/Grocery_manager.dart';
 import 'package:shopping_app/models/providers/app_state_manager.dart';
 import 'package:shopping_app/navigator/router.dart';
-
-import 'screens/home.dart';
 
 void main() {
   appStatemanager.initializeApp();
