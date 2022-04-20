@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_app/models/data%20models/dad_jokes/dad_jokes.dart';
+import 'package:shopping_app/models/data%20models/some_posts/some_posts.dart';
 
 import 'package:shopping_app/network/data_service/other_data_service.dart';
 
@@ -14,7 +15,7 @@ class _DataScreenState extends State<DataScreen> {
   final TextEditingController _controller = TextEditingController();
   final _dataservice = SomeDataService();
 
-  DadJokes? _response;
+  String? _response;
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +33,7 @@ class _DataScreenState extends State<DataScreen> {
         ),
         ElevatedButton(onPressed: searchJoke, child: Text("Search Joke")),
         Column(
-          children: [
-            if (_response != null) Text('${_response!.body![0].setup}')
-          ],
+          children: [if (_response != null) Text('${_response}')],
         )
       ],
     ));

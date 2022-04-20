@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shopping_app/chopper_data_service.dart/chopper_data_service.dart';
 import 'package:shopping_app/models/providers/Grocery_manager.dart';
 import 'package:shopping_app/models/providers/app_state_manager.dart';
 import 'package:shopping_app/navigator/router.dart';
@@ -17,6 +18,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        Provider(
+          create: (_) => TheApiService.create(),
+        ),
         ChangeNotifierProvider(
           create: (context) => AppStatemanager(),
         ),

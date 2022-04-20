@@ -8,7 +8,7 @@ class DataService {
 
     Map<String, String> _headers = {
       'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com',
-      'X-RapidAPI-Key': '3526f793f3msh99aa583711df8d3p182172jsn53bb75918485'
+      'X-RapidAPI-Key': ''
     };
 
     final uri = Uri.https(
